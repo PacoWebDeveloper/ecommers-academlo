@@ -18,6 +18,10 @@
   'GRAD' 0,
   'opsz' 48
 }
+html {
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+}
 body {
     background-color: #f7f7f8;
 }
@@ -68,6 +72,15 @@ img[alt="logo"] {
 }
 .menu-item{
     width: 100%;
+}
+.menu-item:hover {
+    color: var(--red-color);
+}
+.menu-item > a {
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
 }
 .show-menu {
     left: 0;
