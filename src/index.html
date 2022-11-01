@@ -19,8 +19,8 @@
         </div>
         <!-- menu -->
         <ul class="menu">
-            <li class="menu-item active">Home</li>
-            <li class="menu-item">Products</li>
+            <li class="menu-item active"><a href="#home">Home</a></li>
+            <li class="menu-item"><a href="#products">Products</a></li>
         </ul>
         <ul class="options">
             <li class="option-item">
@@ -46,7 +46,8 @@
             </li>
         </ul>
     </nav>
-    <div class="main-product-container">
+    <!-- main product section -->
+    <div class="main-product-container" id="home">
         <div class="product-img">
             <img src="img/home.png" alt="home">
         </div>
@@ -63,6 +64,61 @@
     <div class="buttons">
         <button class="btn">Discover</button>
         <button class="btnBig">ADD TO CART</button>
+    </div>
+    <!-- products sections -->
+    <div class="products-container" id="products">
+        <!-- filter -->
+        <div class="filter">
+            <div class="filter-item  no-border">
+                <div class="filter-name dark-color">Show All</div>
+                <div class="filter-description">show all products</div>
+            </div>
+            <div class="filter-item">
+                <div class="filter-name">Hoodies</div>
+                <div class="filter-description">3 products</div>
+            </div>
+            <div class="filter-item">
+                <div class="filter-name">Shirts</div>
+                <div class="filter-description">4 products</div>
+            </div>
+            <div class="filter-item">
+                <div class="filter-name">Sweatshirts</div>
+                <div class="filter-description">4 products</div>
+            </div>
+        </div>
+        <!-- product list -->
+        <div class="product-list">
+            <div class="product-card">
+                <div class="prod-img">
+                    <img src="img/featured1.png" alt="featured1">
+                </div>
+                <div class="prod-data">
+                    <div class="price">$14.00</div>
+                    <div class="stock">Stock: 9</div>
+                    <div class="name">Hoddies</div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="prod-img">
+                    <img src="img/featured2.png" alt="featured2">
+                </div>
+                <div class="prod-data">
+                    <div class="price"></div>
+                    <div class="stock"></div>
+                    <div class="name"></div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="prod-img">
+                    <img src="img/featured3.png" alt="featured3">
+                </div>
+                <div class="prod-data">
+                    <div class="price"></div>
+                    <div class="stock"></div>
+                    <div class="name"></div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
