@@ -23,6 +23,6 @@ window.addEventListener('load', () => {
     function openCloseMenu() {
         menu.classList.toggle('show-menu')
         menuBtn.classList.toggle('hide');
-        closeBtn.classList.toggle('hide')
+        closeBtn.classList.toggle('hide');
     }
 })
