@@ -13,38 +13,40 @@
 <body>
     <!-- navbar -->
     <nav class="navbar">
-        <div class="logo">
-            <img src="img/logo.png" alt="logo">
-            <h2>STORE</h2>
+        <div class="menu-container">
+            <div class="logo">
+                <img src="img/logo.png" alt="logo">
+                <h2>STORE</h2>
+            </div>
+            <!-- menu -->
+            <ul class="menu">
+                <li class="menu-item active"><a href="#home">Home</a></li>
+                <li class="menu-item"><a href="#products">Products</a></li>
+            </ul>
+            <ul class="options">
+                <li class="option-item">
+                    <span class="material-symbols-outlined">
+                        clear_night
+                    </span>
+                </li>
+                <li class="option-item cart">
+                    <span class="material-symbols-outlined">
+                        shopping_bag
+                    </span>
+                </li>
+                <li class="option-item menu-btn">
+                    <span class="material-symbols-outlined">
+                        widgets
+                    </span>
+                    
+                </li>
+                <li class="option-item close hide">
+                    <span class="material-symbols-outlined">
+                        close
+                    </span>
+                </li>
+            </ul>
         </div>
-        <!-- menu -->
-        <ul class="menu">
-            <li class="menu-item active"><a href="#home">Home</a></li>
-            <li class="menu-item"><a href="#products">Products</a></li>
-        </ul>
-        <ul class="options">
-            <li class="option-item">
-                <span class="material-symbols-outlined">
-                    clear_night
-                </span>
-            </li>
-            <li class="option-item cart">
-                <span class="material-symbols-outlined">
-                    shopping_bag
-                </span>
-            </li>
-            <li class="option-item menu-btn">
-                <span class="material-symbols-outlined">
-                    widgets
-                </span>
-                
-            </li>
-            <li class="option-item close hide">
-                <span class="material-symbols-outlined">
-                    close
-                </span>
-            </li>
-        </ul>
     </nav>
     <!-- main product section -->
     <div class="main-product-container" id="home">
@@ -56,20 +58,20 @@
             <p class="product-description">
                 Latest arrival of the new Hanes Midweight Crewneck sweatshirt imported from the 2022 series, with a modern design.
             </p>
+            <div class="product-price">
+                $14.00
+            </div>
+            <div class="buttons">
+                <button class="btn">Discover</button>
+                <button class="btnBig">ADD TO CART</button>
+            </div>
         </div>
-        <div class="product-price">
-            $14.00
-        </div>
-    </div>
-    <div class="buttons">
-        <button class="btn">Discover</button>
-        <button class="btnBig">ADD TO CART</button>
     </div>
     <!-- products sections -->
     <div class="products-container" id="products">
         <!-- filter -->
         <div class="filter">
-            <div class="filter-item  no-border">
+            <div class="filter-item">
                 <div class="filter-name dark-color">Show All</div>
                 <div class="filter-description">show all products</div>
             </div>
