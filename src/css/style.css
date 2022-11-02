@@ -218,6 +218,10 @@ img[alt="logo"] {
 }
 .prod-img > img {
     width: 80%;
+    transition: transform 500ms;
+}
+.product-card:hover .prod-img >img {
+    transform: translateY(-3px);
 }
 .prod-data {
     display: grid;
