@@ -25,4 +25,51 @@ window.addEventListener('load', () => {
         menuBtn.classList.toggle('hide');
         closeBtn.classList.toggle('hide');
     }
+
+    // ================ Shopping cart =============
+    const productsArray = [
+        {
+            prodName: 'New Dewatshirt',
+            prodPrice: 14,
+            prodStock: 9
+        },
+        {
+            prodName: 'Hoddies',
+            prodPrice: 14,
+            prodStock: 9
+        },
+        {
+            prodName: 'Shirts',
+            prodPrice: 24,
+            prodStock: 13
+        },
+        {
+            prodName: 'Sweatshirts',
+            prodPrice: 24,
+            prodStock: 20
+        }        
+    ]
+    const cartBtn = document.querySelector('.cart');
+    const shoppingCart = document.querySelector('.shopping-cart');
+    const addCartBtns = document.querySelectorAll('.add-to-cart');
+    const closeShoppingBtn = document.querySelector('.close-btn');
+
+    cartBtn.addEventListener('click', () => {
+        showHideShoppingCart();
+    })
+
+    closeShoppingBtn.addEventListener('click', () => {
+        showHideShoppingCart();
+    })
+
+    addCartBtns.forEach(button => {
+        button.addEventListener('click', () => {
+            
+        })
+    })
+
+    function showHideShoppingCart() {
+        shoppingCart.classList.toggle('show-shoppong-cart');
+    }
+
 })
