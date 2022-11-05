@@ -1,4 +1,4 @@
-import { addProductCard, filterProducts } from "./UI.js";
+import { addProductCard, filterProducts, addToShoppingCart } from "./UI.js";
 window.addEventListener('load', () => {
     // ===========> VARIABLES <=====================
     // ================= Menu ==============
@@ -43,6 +43,9 @@ window.addEventListener('load', () => {
             prodImg: 'img/featured3.png'
         }        
     ]
+    let productObj = {};
+    let productItem = {};
+    
     // ================ Product list ===================
     const productList = document.querySelector('.product-list');
     // ================ Filters ========================
@@ -66,10 +69,10 @@ window.addEventListener('load', () => {
                 productList.innerHTML += addProductCard(product)
         })
     }
-
     // =============> ACTIONS <==================
     // ====== OnInit ========
     insertProducts(productsArray);
+    
     // ===== Menu =========
     menuBtn.addEventListener('click', () => {
         openCloseMenu()
@@ -92,12 +95,6 @@ window.addEventListener('load', () => {
     closeShoppingBtn.addEventListener('click', () => {
         showHideShoppingCart();
     })
-
-    addCartBtns.forEach(button => {
-        button.addEventListener('click', () => {
-            
-        })
-    })
     // ================ Filters ========================
     filters.forEach(filter => {
         filter.addEventListener('click', (e) => {
@@ -111,5 +108,28 @@ window.addEventListener('load', () => {
                 filtername = element.previousElementSibling.textContent
             insertProducts(filterProducts(filtername,productsArray))
         })
+    })
+    // ================= Product list ==================
+    
+    productList.addEventListener('click', (e) => {
+        const element = e.target;
+        let id = Number(element.id);
+        if (element.classList.contains('add-to-cart')) {
+            productItem = productsArray.find(product => product.id === id);
+        } else if (element.textContent.trim() === 'add') {
+            productItem = productsArray.find(product => product.id === Number(element.parentNode.id));
+            id = Number(element.parentNode.id);
+        }
+
+        if (id in productObj) {
+            productObj[id].prodQuantity++;
+        } else {
+            productObj[id] = productItem;
+            productObj[id].prodQuantity = 1;
+        }
+
+        /* 
+            MANDAR ESTE OBJETO DE PROYECTOS A UI PARA QUE GENERE EL HTML PARA EL CARRITO DE COMPRAS
+        */
     })
 })
