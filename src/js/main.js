@@ -1,4 +1,4 @@
-import { addProductCard } from "./UI.js";
+import { addProductCard, filterProducts } from "./UI.js";
 window.addEventListener('load', () => {
     // ===========> VARIABLES <=====================
     // ================= Menu ==============
@@ -16,14 +16,14 @@ window.addEventListener('load', () => {
     const productsArray = [
         {
             id: 1,
-            prodName: 'New Dewatshirt',
+            prodName: 'New Sweatshirt',
             prodPrice: 14,
             prodStock: 9,
             prodImg: 'img/home.png'
         },
         {
             id: 2,
-            prodName: 'Hoddies',
+            prodName: 'Hoodies',
             prodPrice: 14,
             prodStock: 9,
             prodImg: 'img/featured1.png'
@@ -43,7 +43,10 @@ window.addEventListener('load', () => {
             prodImg: 'img/featured3.png'
         }        
     ]
+    // ================ Product list ===================
     const productList = document.querySelector('.product-list');
+    // ================ Filters ========================
+    const filters = document.querySelectorAll('.filter-item');
     // =============> FUNCTIONS <========================
     //=========== Menu ==================
     function openCloseMenu() {
@@ -57,6 +60,7 @@ window.addEventListener('load', () => {
     }
     // ============ Product list ==============
     function insertProducts(products) {
+        productList.innerHTML = '';
         products.forEach(product => {
             if (product.prodImg != 'img/home.png')
                 productList.innerHTML += addProductCard(product)
@@ -92,6 +96,20 @@ window.addEventListener('load', () => {
     addCartBtns.forEach(button => {
         button.addEventListener('click', () => {
             
+        })
+    })
+    // ================ Filters ========================
+    filters.forEach(filter => {
+        filter.addEventListener('click', (e) => {
+            let element = e.target;
+            let filtername = ''; 
+            if (element.classList.contains('filter-item'))
+                filtername = element.childNodes[1].textContent
+            if (element.classList.contains('filter-name'))
+                filtername = element.textContent;
+            if (element.classList.contains('filter-description'))
+                filtername = element.previousElementSibling.textContent
+            insertProducts(filterProducts(filtername,productsArray))
         })
     })
 })

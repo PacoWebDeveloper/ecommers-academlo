@@ -19,4 +19,20 @@ function addProductCard ({prodName, prodPrice, prodStock, prodImg}) {
     return card;
 }
 
-export { addProductCard };
+function filterProducts (filterName, products) {
+    
+    const filters = {
+        "Show All": products,
+        "Hoodies": getFilteredProducts(filterName, products),
+        "Shirts": getFilteredProducts(filterName, products),
+        "Sweatshirts": getFilteredProducts(filterName, products)
+    }
+    return filters[filterName];
+}
+
+function getFilteredProducts(filterName, products) {
+    let newProducts = [];
+    return newProducts = products.filter(products => products.prodName === filterName)
+}
+
+export { addProductCard, filterProducts };
