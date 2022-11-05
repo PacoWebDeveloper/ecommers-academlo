@@ -385,7 +385,7 @@ img[alt="logo"] {
     left: 4rem;
     transition: background-color 300ms, color 300ms;
 }
-.add-to-cart:hover {
+.add-to-cart:active {
     background-color: var(--red-color);
     color: #fff;
 }
@@ -583,6 +583,10 @@ footer {
         }
         .name {
             font-size: 1.2rem;
+        }
+        .add-to-cart:hover {
+            background-color: var(--red-color);
+            color: #fff;
         }
     }
 }
