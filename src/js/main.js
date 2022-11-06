@@ -64,13 +64,14 @@ window.addEventListener('load', () => {
     }
     function enterProdIntoProdObj (id, product) {
         if (id in productObj) {
-            productObj[id].prodQuantity++;
+            if (productObj[id].prodQuantity < productObj[id].prodStock)
+                productObj[id].prodQuantity++;
         } else {
             productObj[id] = product;
             productObj[id].prodQuantity = 1;
         }
     }
-    function removeProductFromProdObj(id, products) { console.log(products)
+    function removeProductFromProdObj(id, products) { 
         shoppingCart.innerHTML = setHeaderInShoppingCart();
         if (id in products) { 
             if (products[id].prodQuantity > 0)
@@ -156,6 +157,12 @@ window.addEventListener('load', () => {
             showHideShoppingCart();
         if (element.classList.contains('lessBtn'))
             removeProductFromProdObj(element.parentNode.parentNode.id, productObj)
+        if (element.classList.contains('addBtn')) {
+            let id = element.parentNode.parentNode.id;
+            let product = productObj[id];
+            enterProdIntoProdObj(id, product)
+            addProductToCart(productObj)
+        }
     })
     // ================ Main product container =========
     btnBig.addEventListener('click', () => {
