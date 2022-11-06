@@ -224,7 +224,7 @@ img[alt="logo"] {
 .checkout-change-color {
     color: #000;
 }
-.checkout-btn-enabled:active {
+.checkout-change-color:active {
     background-color: var(--red-color);
     color: #fff;
 }

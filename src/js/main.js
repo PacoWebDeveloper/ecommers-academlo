@@ -1,4 +1,4 @@
-import { addProductCard, filterProducts, addToShoppingCart, updateTotalItemsAndTotalCost } from "./UI.js";
+import { addProductCard, filterProducts, addToShoppingCart, updateTotalItemsAndTotalCost, setHeaderInShoppingCart, setShoppingCartToDefault } from "./UI.js";
 window.addEventListener('load', () => {
     // ===========> VARIABLES <=====================
     // ================= Menu ==============
@@ -45,8 +45,6 @@ window.addEventListener('load', () => {
     ]
     let productObj = {};
     let productItem = {};
-    const totalItems = document.querySelector('.total-items');
-    const totalCost = document.querySelector('.total-cost');
     // ================ Main product container =========
     const btnBig = document.querySelector('.btnBig');
     // ================ Product list ===================
@@ -72,6 +70,19 @@ window.addEventListener('load', () => {
             productObj[id].prodQuantity = 1;
         }
     }
+    function removeProductFromProdObj(id, products) { console.log(products)
+        shoppingCart.innerHTML = setHeaderInShoppingCart();
+        if (id in products) { 
+            if (products[id].prodQuantity > 0)
+                products[id].prodQuantity--;
+            if (products[id].prodQuantity === 0) 
+                delete products[id];
+        } 
+        for (const product in products) {
+            shoppingCart.innerHTML += addToShoppingCart(products[product]);
+        }
+        updateTotals();
+    }
     function updateTotals() {
         let quantity = 0, total = 0;
         let id = 1;
@@ -83,6 +94,10 @@ window.addEventListener('load', () => {
             id++;
         }
         total = Number.parseFloat(total).toFixed(2);
+        if (quantity === 0) {
+            shoppingCart.innerHTML = setHeaderInShoppingCart();
+            shoppingCart.innerHTML += setShoppingCartToDefault();
+        }
         shoppingCart.innerHTML += updateTotalItemsAndTotalCost(quantity, total)
     }
     // ============ Product list ==============
@@ -94,20 +109,20 @@ window.addEventListener('load', () => {
         })
     }
     function addProductToCart (products) {
-        shoppingCart.innerHTML = `
-            <div class="shop-header">
-                <p class="shop-title">My Cart</p>
-                <div class="close-btn">
-                    <span class="material-symbols-outlined">
-                        close
-                    </span>
-                </div>
-            </div>
-        `;
+        shoppingCart.innerHTML = setHeaderInShoppingCart();
         for (const product in products) {
             shoppingCart.innerHTML += addToShoppingCart(products[product]);
         }
         updateTotals();
+        enableCheckout();
+    }
+    function enableCheckout () {
+        shoppingCart.children[3].classList.remove('checkout-btn-disabled');
+        shoppingCart.children[3].classList.add('checkout-change-color');
+    }
+    function disableCheckout () {
+        shoppingCart.children[3].classList.add('checkout-btn-disabled');
+        shoppingCart.children[3].classList.remove('checkout-change-color');
     }
     // =============> ACTIONS <==================
     // ====== OnInit ========
@@ -139,6 +154,8 @@ window.addEventListener('load', () => {
         const element = e.target;
         if (element.parentNode.classList.contains('close-btn'))
             showHideShoppingCart();
+        if (element.classList.contains('lessBtn'))
+            removeProductFromProdObj(element.parentNode.parentNode.id, productObj)
     })
     // ================ Main product container =========
     btnBig.addEventListener('click', () => {

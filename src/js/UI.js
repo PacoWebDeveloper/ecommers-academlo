@@ -37,16 +37,6 @@ function getFilteredProducts(filterName, products) {
 
 function addToShoppingCart(product) {
     const {id, prodName, prodPrice, prodStock, prodImg, prodQuantity} = product;
-    /* let card = `
-    <div class="shop-header">
-        <p class="shop-title">My Cart</p>
-        <div class="close-btn">
-            <span class="material-symbols-outlined">
-                close
-            </span>
-        </div>
-    </div>
-    ` */
     let card = `
     <div class="shop-product-card">
         <img src="${prodImg}" alt="${prodImg.slice(4,-4)}">
@@ -92,8 +82,34 @@ function updateTotalItemsAndTotalCost(items, total) {
         <span class="checkout-text">Checkout</span>
     </button>
     `;
-
     return totals;
 }
 
-export { addProductCard, filterProducts, addToShoppingCart, updateTotalItemsAndTotalCost };
+function setHeaderInShoppingCart () {
+    let header = `
+        <div class="shop-header">
+            <p class="shop-title">My Cart</p>
+            <div class="close-btn">
+                <span class="material-symbols-outlined">
+                    close
+                </span>
+            </div>
+        </div>
+    `;
+    return header;
+}
+
+function setShoppingCartToDefault() {
+    let emptyCart = `
+    <div class="empty-cart show-empty-cart">
+        <img src="img/empty-cart.png" alt="empty cart">
+        <div class="empty-cart-title">Your cart is empty</div>
+        <div class="empty-cart-description">
+            You can add items to your cart by clicking on the "+" button on the product page.
+        </div>
+    </div>
+    `;
+    return emptyCart;
+}
+
+export { addProductCard, filterProducts, addToShoppingCart, updateTotalItemsAndTotalCost, setHeaderInShoppingCart, setShoppingCartToDefault };
