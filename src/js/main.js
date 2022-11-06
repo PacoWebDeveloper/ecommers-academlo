@@ -121,10 +121,10 @@ window.addEventListener('load', () => {
         shoppingCart.children[3].classList.remove('checkout-btn-disabled');
         shoppingCart.children[3].classList.add('checkout-change-color');
     }
-    function disableCheckout () {
+    /* function disableCheckout () {
         shoppingCart.children[3].classList.add('checkout-btn-disabled');
         shoppingCart.children[3].classList.remove('checkout-change-color');
-    }
+    } */
     // =============> ACTIONS <==================
     // ====== OnInit ========
     insertProducts(productsArray);
@@ -161,6 +161,11 @@ window.addEventListener('load', () => {
             let id = element.parentNode.parentNode.id;
             let product = productObj[id];
             enterProdIntoProdObj(id, product)
+            addProductToCart(productObj)
+        }
+        if (element.parentNode.classList.contains('deleteBtn')) {
+            let id = element.parentNode.parentNode.id;
+            delete productObj[id];
             addProductToCart(productObj)
         }
     })

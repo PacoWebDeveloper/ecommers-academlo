@@ -75,7 +75,7 @@ function updateTotalItemsAndTotalCost(items, total) {
             $${total}
         </div>
     </div>
-    <button class="checkout-btn checkout-btn-disabled">
+    <button class="checkout-btn checkout-change-color">
         <span class="material-symbols-outlined">
             verified_user
         </span>
