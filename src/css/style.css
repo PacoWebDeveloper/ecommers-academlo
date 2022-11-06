@@ -293,7 +293,7 @@ img[alt="logo"] {
     box-shadow: 0 0 30px #1a1a1a33;
     transition: background-color 300ms;
 }
-.btnBig:hover {
+.btnBig:active {
     background-color: var(--red-color);
 }
 /* Products sections */
@@ -587,6 +587,9 @@ footer {
         .add-to-cart:hover {
             background-color: var(--red-color);
             color: #fff;
+        }
+        .btnBig:hover {
+            background-color: var(--red-color);
         }
     }
 }

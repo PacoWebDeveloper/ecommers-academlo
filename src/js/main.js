@@ -45,7 +45,8 @@ window.addEventListener('load', () => {
     ]
     let productObj = {};
     let productItem = {};
-    
+    // ================ Main product container =========
+    const btnBig = document.querySelector('.btnBig');
     // ================ Product list ===================
     const productList = document.querySelector('.product-list');
     // ================ Filters ========================
@@ -61,6 +62,14 @@ window.addEventListener('load', () => {
     function showHideShoppingCart() {
         shoppingCart.classList.toggle('show-shoppong-cart');
     }
+    function enterProdIntoProdObj (id, product) {
+        if (id in productObj) {
+            productObj[id].prodQuantity++;
+        } else {
+            productObj[id] = product;
+            productObj[id].prodQuantity = 1;
+        }
+    }
     // ============ Product list ==============
     function insertProducts(products) {
         productList.innerHTML = '';
@@ -68,6 +77,21 @@ window.addEventListener('load', () => {
             if (product.prodImg != 'img/home.png')
                 productList.innerHTML += addProductCard(product)
         })
+    }
+    function addProductToCart (products) {
+        shoppingCart.innerHTML = `
+            <div class="shop-header">
+                <p class="shop-title">My Cart</p>
+                <div class="close-btn">
+                    <span class="material-symbols-outlined">
+                        close
+                    </span>
+                </div>
+            </div>
+        `;
+        for (const product in products) {
+            shoppingCart.innerHTML += addToShoppingCart(products[product]);
+        }
     }
     // =============> ACTIONS <==================
     // ====== OnInit ========
@@ -92,8 +116,18 @@ window.addEventListener('load', () => {
         showHideShoppingCart();
     })
 
-    closeShoppingBtn.addEventListener('click', () => {
+    /* closeShoppingBtn.addEventListener('click', () => {
         showHideShoppingCart();
+    }) */
+    shoppingCart.addEventListener('click', (e) => {
+        const element = e.target;
+        if (element.parentNode.classList.contains('close-btn'))
+            showHideShoppingCart();
+    })
+    // ================ Main product container =========
+    btnBig.addEventListener('click', () => {
+        enterProdIntoProdObj(1, productsArray[0]);
+        addProductToCart(productObj);
     })
     // ================ Filters ========================
     filters.forEach(filter => {
@@ -121,15 +155,13 @@ window.addEventListener('load', () => {
             id = Number(element.parentNode.id);
         }
 
-        if (id in productObj) {
+        enterProdIntoProdObj(id, productItem);
+        /* if (id in productObj) {
             productObj[id].prodQuantity++;
         } else {
             productObj[id] = productItem;
             productObj[id].prodQuantity = 1;
-        }
-
-        /* 
-            MANDAR ESTE OBJETO DE PROYECTOS A UI PARA QUE GENERE EL HTML PARA EL CARRITO DE COMPRAS
-        */
+        } */
+        addProductToCart(productObj);
     })
 })

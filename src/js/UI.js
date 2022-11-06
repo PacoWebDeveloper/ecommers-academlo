@@ -37,6 +37,16 @@ function getFilteredProducts(filterName, products) {
 
 function addToShoppingCart(product) {
     const {id, prodName, prodPrice, prodStock, prodImg, prodQuantity} = product;
+    /* let card = `
+    <div class="shop-header">
+        <p class="shop-title">My Cart</p>
+        <div class="close-btn">
+            <span class="material-symbols-outlined">
+                close
+            </span>
+        </div>
+    </div>
+    ` */
     let card = `
     <div class="shop-product-card">
         <img src="${prodImg}" alt="${prodImg.slice(4,-4)}">
@@ -46,11 +56,11 @@ function addToShoppingCart(product) {
                 <p class="shop-prod-stock">Stock: ${prodStock}</p>
                 <p class="shop-prod-price">$${prodPrice}</p>
             </div>
-            <p class="shop-prod-subtotal">Subtotal: $${prodPrice * quantity}</p>
+            <p class="shop-prod-subtotal">Subtotal: $${prodPrice * prodQuantity}</p>
             <div class="shop-options-container" id = "${id}">
                 <div class="shop-options">
                     <button class="lessBtn">-</button>
-                    <span class="units">${quantity} units</span>
+                    <span class="units">${prodQuantity} units</span>
                     <button class="addBtn">+</button>
                 </div>
                 <button class="deleteBtn">
@@ -61,7 +71,7 @@ function addToShoppingCart(product) {
             </div>
         </div>
     </div>
-    `; console.log(card);
+    `;
     return card;
 }
 
