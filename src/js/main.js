@@ -1,4 +1,4 @@
-import { addProductCard, filterProducts, addToShoppingCart } from "./UI.js";
+import { addProductCard, filterProducts, addToShoppingCart, updateTotalItemsAndTotalCost } from "./UI.js";
 window.addEventListener('load', () => {
     // ===========> VARIABLES <=====================
     // ================= Menu ==============
@@ -45,6 +45,8 @@ window.addEventListener('load', () => {
     ]
     let productObj = {};
     let productItem = {};
+    const totalItems = document.querySelector('.total-items');
+    const totalCost = document.querySelector('.total-cost');
     // ================ Main product container =========
     const btnBig = document.querySelector('.btnBig');
     // ================ Product list ===================
@@ -70,6 +72,19 @@ window.addEventListener('load', () => {
             productObj[id].prodQuantity = 1;
         }
     }
+    function updateTotals() {
+        let quantity = 0, total = 0;
+        let id = 1;
+        for (id in productObj) {
+            if (id in productObj) {
+                quantity += productObj[id].prodQuantity;
+                total += productObj[id].prodPrice * productObj[id].prodQuantity;
+            }
+            id++;
+        }
+        total = Number.parseFloat(total).toFixed(2);
+        shoppingCart.innerHTML += updateTotalItemsAndTotalCost(quantity, total)
+    }
     // ============ Product list ==============
     function insertProducts(products) {
         productList.innerHTML = '';
@@ -92,6 +107,7 @@ window.addEventListener('load', () => {
         for (const product in products) {
             shoppingCart.innerHTML += addToShoppingCart(products[product]);
         }
+        updateTotals();
     }
     // =============> ACTIONS <==================
     // ====== OnInit ========
@@ -156,12 +172,6 @@ window.addEventListener('load', () => {
         }
 
         enterProdIntoProdObj(id, productItem);
-        /* if (id in productObj) {
-            productObj[id].prodQuantity++;
-        } else {
-            productObj[id] = productItem;
-            productObj[id].prodQuantity = 1;
-        } */
         addProductToCart(productObj);
     })
 })

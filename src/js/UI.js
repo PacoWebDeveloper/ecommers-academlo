@@ -75,4 +75,25 @@ function addToShoppingCart(product) {
     return card;
 }
 
-export { addProductCard, filterProducts, addToShoppingCart };
+function updateTotalItemsAndTotalCost(items, total) {
+    let totals = `
+    <div class="cart-total show-cart-total">
+        <div class="total-items">
+            ${items} items
+        </div>
+        <div class="total-cost">
+            $${total}
+        </div>
+    </div>
+    <button class="checkout-btn checkout-btn-disabled">
+        <span class="material-symbols-outlined">
+            verified_user
+        </span>
+        <span class="checkout-text">Checkout</span>
+    </button>
+    `;
+
+    return totals;
+}
+
+export { addProductCard, filterProducts, addToShoppingCart, updateTotalItemsAndTotalCost };
