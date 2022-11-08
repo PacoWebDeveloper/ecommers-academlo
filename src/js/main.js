@@ -201,7 +201,7 @@ window.addEventListener('load', () => {
             addProductToCart(productObj);
             cartCount.textContent = updateCartCount(productObj);
         }
-        if (element.classList.contains('checkout-text') || element.classList.contains('checkout-btn')) {
+        if (element.classList.contains('checkout-text') || element.classList.contains('checkout-btn') || element.parentNode.classList.contains('checkout-btn')) {
             checkout(productObj);
             updateTotals();            
             cartCount.textContent = updateCartCount();
