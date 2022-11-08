@@ -107,12 +107,21 @@ window.addEventListener('load', () => {
         shoppingCart.innerHTML += updateTotalItemsAndTotalCost(quantity, total)
     }
     function updateCartCount(products) {
-        let ids = Object.keys(products);
-        let count = 0;
+        if (products) {
+            let ids = Object.keys(products);
+            let count = 0;
+            ids.forEach(id => {
+                count += products[id].prodQuantity;       
+            });
+            return count;
+        }
+        return 0;
+    }
+    function checkout(products) {
+        const ids = Object.keys(products);
         ids.forEach(id => {
-            count += products[id].prodQuantity;       
-        });
-        return count;
+            removeProductFromProdObj(id, products);
+        })
     }
     // ============ Product list ==============
     function insertProducts(products) {
@@ -191,6 +200,12 @@ window.addEventListener('load', () => {
             delete productObj[id];
             addProductToCart(productObj);
             cartCount.textContent = updateCartCount(productObj);
+        }
+        if (element.classList.contains('checkout-text') || element.classList.contains('checkout-btn')) {
+            checkout(productObj);
+            updateTotals();            
+            cartCount.textContent = updateCartCount();
+            disableCheckout();
         }
     })
     function getProducsObjLength(productsObj) {
