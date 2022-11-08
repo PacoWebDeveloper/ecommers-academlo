@@ -72,17 +72,21 @@ window.addEventListener('load', () => {
         }
     }
     function removeProductFromProdObj(id, products) { 
+        /* const productsLength = Object.keys(products); */
         shoppingCart.innerHTML = setHeaderInShoppingCart();
         if (id in products) { 
             if (products[id].prodQuantity > 0)
-                products[id].prodQuantity--;
+            products[id].prodQuantity--;
             if (products[id].prodQuantity === 0) 
-                delete products[id];
+            delete products[id];
         } 
         for (const product in products) {
             shoppingCart.innerHTML += addToShoppingCart(products[product]);
         }
         updateTotals();
+        console.log(getProducsObjLength(products))
+        if (getProducsObjLength(products))
+            disableCheckout();
     }
     function updateTotals() {
         let quantity = 0, total = 0;
@@ -115,16 +119,18 @@ window.addEventListener('load', () => {
             shoppingCart.innerHTML += addToShoppingCart(products[product]);
         }
         updateTotals();
-        enableCheckout();
+        if (getProducsObjLength(products))
+            disableCheckout();
+        else enableCheckout();
     }
     function enableCheckout () {
         shoppingCart.children[3].classList.remove('checkout-btn-disabled');
         shoppingCart.children[3].classList.add('checkout-change-color');
     }
-    /* function disableCheckout () {
+    function disableCheckout () {
         shoppingCart.children[3].classList.add('checkout-btn-disabled');
         shoppingCart.children[3].classList.remove('checkout-change-color');
-    } */
+    }
     // =============> ACTIONS <==================
     // ====== OnInit ========
     insertProducts(productsArray);
@@ -169,6 +175,12 @@ window.addEventListener('load', () => {
             addProductToCart(productObj)
         }
     })
+    function getProducsObjLength(productsObj) {
+        const productsLength = Object.keys(productsObj);
+        if (productsLength.length === 0)
+            return true;
+        return false;
+    }
     // ================ Main product container =========
     btnBig.addEventListener('click', () => {
         enterProdIntoProdObj(1, productsArray[0]);
