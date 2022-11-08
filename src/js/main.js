@@ -2,6 +2,7 @@ import { addProductCard, filterProducts, addToShoppingCart, updateTotalItemsAndT
 window.addEventListener('load', () => {
     // ===========> VARIABLES <=====================
     // ================= Menu ==============
+    const navbar = document.querySelector('.navbar');
     const menuBtn = document.querySelector('.menu-btn');
     const menu = document.querySelector('.menu');
     const closeBtn = document.querySelector('.close');
@@ -160,6 +161,11 @@ window.addEventListener('load', () => {
     // ================ Shopping cart =============
     cartBtn.addEventListener('click', () => {
         showHideShoppingCart();
+    })
+    window.addEventListener('scroll', () => {
+        if (window.scrollY === 0)
+            navbar.classList.remove('navbar-visible')
+        else navbar.classList.add('navbar-visible')
     })
 
     /* closeShoppingBtn.addEventListener('click', () => {
