@@ -1,6 +1,10 @@
 import { addProductCard, filterProducts, addToShoppingCart, updateTotalItemsAndTotalCost, setHeaderInShoppingCart, setShoppingCartToDefault } from "./UI.js";
 window.addEventListener('load', () => {
     // ===========> VARIABLES <=====================
+    // ================= Dark mode =================
+    const darkBtn = document.querySelector('.dark');
+    const logoRed = document.querySelector('#logo-red');
+    const logoBlue = document.querySelector('#logo-blue');
     // ================= Menu ==============
     const navbar = document.querySelector('.navbar');
     const menuBtn = document.querySelector('.menu-btn');
@@ -153,6 +157,26 @@ window.addEventListener('load', () => {
     // ====== OnInit ========
     insertProducts(productsArray);
     
+    // =========== Dark mode ===============
+    darkBtn.addEventListener('click', () => {
+        const doc = document.documentElement.style;
+        logoRed.classList.toggle('show-logo');
+        logoRed.classList.toggle('hide-logo');
+        logoBlue.classList.toggle('show-logo');
+        logoBlue.classList.toggle('hide-logo');
+        doc.setProperty('--dark-gray-color', '#f7f7f8');
+        doc.setProperty('--white-color', '#1f1d2a');
+        doc.setProperty('--red-color', '#9adde0');
+        doc.setProperty('--black-color', '#f7f7f8');
+        doc.setProperty('--filter-font', '#f7f7f8');
+        doc.setProperty('--prod-data-color', '#1b1a23');
+        doc.setProperty('--add-to-cart', '#1f1d2a');
+        doc.setProperty('--add-to-cart-shadow', 'transparent');
+        doc.setProperty('--check-disabled', '#131319');
+        doc.setProperty('--light-gray-color', '#131319');
+        doc.setProperty('--footer-title', '#f7f7f8');
+        doc.setProperty('--footer-font', '#f7f7f8');
+    })
     // ===== Menu =========
     menuBtn.addEventListener('click', () => {
         openCloseMenu()
