@@ -160,22 +160,44 @@ window.addEventListener('load', () => {
     // =========== Dark mode ===============
     darkBtn.addEventListener('click', () => {
         const doc = document.documentElement.style;
-        logoRed.classList.toggle('show-logo');
-        logoRed.classList.toggle('hide-logo');
-        logoBlue.classList.toggle('show-logo');
-        logoBlue.classList.toggle('hide-logo');
-        doc.setProperty('--dark-gray-color', '#f7f7f8');
-        doc.setProperty('--white-color', '#1f1d2a');
-        doc.setProperty('--red-color', '#9adde0');
-        doc.setProperty('--black-color', '#f7f7f8');
-        doc.setProperty('--filter-font', '#f7f7f8');
-        doc.setProperty('--prod-data-color', '#1b1a23');
-        doc.setProperty('--add-to-cart', '#1f1d2a');
-        doc.setProperty('--add-to-cart-shadow', 'transparent');
-        doc.setProperty('--check-disabled', '#131319');
-        doc.setProperty('--light-gray-color', '#131319');
-        doc.setProperty('--footer-title', '#f7f7f8');
-        doc.setProperty('--footer-font', '#f7f7f8');
+        if (darkBtn.children[0].textContent.trim() == 'clear_night') {
+            darkBtn.children[0].textContent = 'light_mode';
+            logoRed.classList.toggle('show-logo');
+            logoRed.classList.toggle('hide-logo');
+            logoBlue.classList.toggle('show-logo');
+            logoBlue.classList.toggle('hide-logo');
+            doc.setProperty('--dark-gray-color', '#f7f7f8');
+            doc.setProperty('--white-color', '#1f1d2a');
+            doc.setProperty('--red-color', '#9adde0');
+            doc.setProperty('--black-color', '#f7f7f8');
+            doc.setProperty('--filter-font', '#f7f7f8');
+            doc.setProperty('--prod-data-color', '#1b1a23');
+            doc.setProperty('--add-to-cart', '#1f1d2a');
+            doc.setProperty('--add-to-cart-shadow', 'transparent');
+            doc.setProperty('--check-disabled', '#131319');
+            doc.setProperty('--light-gray-color', '#131319');
+            doc.setProperty('--footer-title', '#f7f7f8');
+            doc.setProperty('--footer-font', '#f7f7f8');
+        }
+        else {
+            darkBtn.children[0].textContent = 'clear_night';
+            logoRed.classList.toggle('show-logo');
+            logoRed.classList.toggle('hide-logo');
+            logoBlue.classList.toggle('show-logo');
+            logoBlue.classList.toggle('hide-logo');
+            doc.setProperty('--dark-gray-color', '#2b2b2b');
+            doc.setProperty('--white-color', '#f7f7f8');
+            doc.setProperty('--red-color', '#e94959');
+            doc.setProperty('--black-color', '#000');
+            doc.setProperty('--filter-font', '#444');
+            doc.setProperty('--prod-data-color', '#fff');
+            doc.setProperty('--add-to-cart', '#f0f0f0');
+            doc.setProperty('--add-to-cart-shadow', 'rgba(85, 85, 85, 0.445)');
+            doc.setProperty('--check-disabled', '#f0f0f0');
+            doc.setProperty('--light-gray-color', '#e6e6e6');
+            doc.setProperty('--footer-title', '#262626');
+            doc.setProperty('--footer-font', '#6b6b6b');
+        }
     })
     // ===== Menu =========
     menuBtn.addEventListener('click', () => {
