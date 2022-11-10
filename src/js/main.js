@@ -230,9 +230,13 @@ window.addEventListener('load', () => {
     closeBtn.addEventListener('click', () => {
         openCloseMenu()
     })
-
     menuItem.forEach(item => {
         item.addEventListener('click', () => {
+            item.classList.toggle('active');
+            if(item.nextElementSibling)
+                item.nextElementSibling.classList.remove('active');
+                if(item.previousElementSibling)
+                item.previousElementSibling.classList.remove('active');
             openCloseMenu()
         })
     })
