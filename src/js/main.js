@@ -4,12 +4,7 @@ window.addEventListener('load', () => {
     // ===========> VARIABLES <=====================
     // ================= Loading ===================
     const mainContainer = document.querySelector('.main-container');
-    const loading = document.querySelector('.loading');
-    const logo = document.querySelector('#loading-logo');
-    
-    loading.style.display = 'none';
-    mainContainer.classList.add('show-main-container');
-    
+    const loading = document.querySelector('.loading');    
     // ================= Dark mode =================
     const darkBtn = document.querySelector('.dark');
     const logoRed = document.querySelector('#logo-red');
@@ -65,6 +60,13 @@ window.addEventListener('load', () => {
     // ================ Filters ========================
     const filters = document.querySelectorAll('.filter-item');
     // =============> FUNCTIONS <========================
+    // ================== Loading ===================
+    function stopLoading() {
+        setTimeout(() => {
+            loading.style.display = 'none';
+            mainContainer.classList.add('show-main-container');
+        }, 2000);
+    }
     //=========== Menu ==================
     function openCloseMenu() {
         menu.classList.toggle('show-menu')
@@ -162,6 +164,7 @@ window.addEventListener('load', () => {
     }
     // =============> ACTIONS <==================
     // ====== OnInit ========
+    stopLoading();
     insertProducts(productsArray);
     // =========== Loading =================
     /* mainContainer.addEventListener('load', () => {
