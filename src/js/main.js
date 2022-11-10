@@ -102,6 +102,11 @@ window.addEventListener('load', () => {
         if (getProducsObjLength(products))
             disableCheckout();
     }
+    function setQuantityCero (id, products) {
+        for( id in products) {
+            products[id].prodQuantity = 0;
+        }
+    }
     function updateTotals() {
         let quantity = 0, total = 0;
         let id = 1;
@@ -133,6 +138,7 @@ window.addEventListener('load', () => {
     function checkout(products) {
         const ids = Object.keys(products);
         ids.forEach(id => {
+            setQuantityCero(id, products);
             removeProductFromProdObj(id, products);
         })
     }
