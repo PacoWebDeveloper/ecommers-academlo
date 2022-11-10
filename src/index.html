@@ -5,223 +5,230 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Academlo Store</title>
+    <link rel="icon" type="image/x-icon" href="img/favicon.png">
     <link rel="stylesheet" href="css/style.css">
     <script src="js/main.js" type="module"></script>
     <!-- google icons -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 <body>
-    <!-- navbar -->
-    <nav class="navbar">
-        <div class="menu-container">
-            <div class="logo">
-                <img src="img/logo.png" alt="logo" class="show-logo" id="logo-red">
-                <img src="img/logo-blue.png" alt="logo" class="hide-logo" id="logo-blue">
-                <h2>STORE</h2>
+    <!-- loading section -->
+    <div class="loading">
+        <img src="img/academlo-logo.png" alt="academlo" id="loading-logo">
+    </div>
+    <div class="main-container">
+        <!-- navbar -->
+        <nav class="navbar">
+            <div class="menu-container">
+                <div class="logo">
+                    <img src="img/logo.png" alt="logo" class="show-logo" id="logo-red">
+                    <img src="img/logo-blue.png" alt="logo" class="hide-logo" id="logo-blue">
+                    <h2>STORE</h2>
+                </div>
+                <!-- menu -->
+                <ul class="menu">
+                    <li class="menu-item active"><a href="#home">Home</a></li>
+                    <li class="menu-item"><a href="#products">Products</a></li>
+                </ul>
+                <ul class="options">
+                    <li class="option-item dark">
+                        <span class="material-symbols-outlined">
+                            clear_night
+                        </span>
+                    </li>
+                    <li class="option-item cart">
+                        <span class="material-symbols-outlined">
+                            shopping_bag
+                        </span>
+                    </li>
+                    <span class="cart-count">0</span>
+                    <li class="option-item menu-btn">
+                        <span class="material-symbols-outlined">
+                            widgets
+                        </span>
+                        
+                    </li>
+                    <li class="option-item close hide">
+                        <span class="material-symbols-outlined">
+                            close
+                        </span>
+                    </li>
+                </ul>
             </div>
-            <!-- menu -->
-            <ul class="menu">
-                <li class="menu-item active"><a href="#home">Home</a></li>
-                <li class="menu-item"><a href="#products">Products</a></li>
-            </ul>
-            <ul class="options">
-                <li class="option-item dark">
-                    <span class="material-symbols-outlined">
-                        clear_night
-                    </span>
-                </li>
-                <li class="option-item cart">
-                    <span class="material-symbols-outlined">
-                        shopping_bag
-                    </span>
-                </li>
-                <span class="cart-count">0</span>
-                <li class="option-item menu-btn">
-                    <span class="material-symbols-outlined">
-                        widgets
-                    </span>
-                    
-                </li>
-                <li class="option-item close hide">
+        </nav>
+        <!-- Shopping cart -->
+        <div class="shopping-cart">
+            <div class="shop-header">
+                <p class="shop-title">My Cart</p>
+                <div class="close-btn">
                     <span class="material-symbols-outlined">
                         close
                     </span>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    <!-- Shopping cart -->
-    <div class="shopping-cart">
-        <div class="shop-header">
-            <p class="shop-title">My Cart</p>
-            <div class="close-btn">
-                <span class="material-symbols-outlined">
-                    close
-                </span>
-            </div>
-        </div>
-        <div class="empty-cart show-empty-cart">
-            <img src="img/empty-cart.png" alt="empty cart">
-            <div class="empty-cart-title">Your cart is empty</div>
-            <div class="empty-cart-description">
-                You can add items to your cart by clicking on the "+" button on the product page.
-            </div>
-        </div>
-        <!-- <div class="shop-product-card">
-            <img src="img/featured1.png" alt="featured1">
-            <div class="shop-prod-data">
-                <p class="shop-prod-name">Hoddies</p>
-                <div class="shop-prod-stock-container">
-                    <p class="shop-prod-stock">Stock: 9</p>
-                    <p class="shop-prod-price">$14.00</p>
                 </div>
-                <p class="shop-prod-subtotal">Subtotal: $14.00</p>
-                <div class="shop-options-container">
-                    <div class="shop-options">
-                        <button class="lessBtn">-</button>
-                        <span class="units">1 units</span>
-                        <button class="addBtn">+</button>
+            </div>
+            <div class="empty-cart show-empty-cart">
+                <img src="img/empty-cart.png" alt="empty cart">
+                <div class="empty-cart-title">Your cart is empty</div>
+                <div class="empty-cart-description">
+                    You can add items to your cart by clicking on the "+" button on the product page.
+                </div>
+            </div>
+            <!-- <div class="shop-product-card">
+                <img src="img/featured1.png" alt="featured1">
+                <div class="shop-prod-data">
+                    <p class="shop-prod-name">Hoddies</p>
+                    <div class="shop-prod-stock-container">
+                        <p class="shop-prod-stock">Stock: 9</p>
+                        <p class="shop-prod-price">$14.00</p>
                     </div>
-                    <button class="deleteBtn">
-                        <span class="material-symbols-outlined">
-                            delete
-                        </span>
-                    </button>
-                </div>
-            </div>
-        </div> -->
-        <div class="cart-total show-cart-total">
-            <div class="total-items">
-                0 items
-            </div>
-            <div class="total-cost">
-                $0.00
-            </div>
-        </div>
-        <button class="checkout-btn checkout-btn-disabled">
-            <span class="material-symbols-outlined">
-                verified_user
-            </span>
-            <span class="checkout-text">Checkout</span>
-        </button>
-    </div>
-    <!-- main product section -->
-    <div class="main-product-container" id="home">
-        <div class="product-img">
-            <img src="img/home.png" alt="home">
-        </div>
-        <div class="product-data">
-            <h1 class="product-name">New Sweatshirt COLLECTIONS 2022</h1>
-            <p class="product-description">
-                Latest arrival of the new Hanes Midweight Crewneck sweatshirt imported from the 2022 series, with a modern design.
-            </p>
-            <div class="product-price">
-                $14.00
-            </div>
-            <div class="buttons">
-                <button class="btn">Discover</button>
-                <button class="btnBig">ADD TO CART</button>
-            </div>
-        </div>
-    </div>
-    <!-- products sections -->
-    <div class="products-container" id="products">
-        <!-- filter -->
-        <div class="filter">
-            <div class="filter-item">
-                <div class="filter-name dark-color">Show All</div>
-                <div class="filter-description">show all products</div>
-            </div>
-            <div class="filter-item">
-                <div class="filter-name">Hoodies</div>
-                <div class="filter-description">3 products</div>
-            </div>
-            <div class="filter-item">
-                <div class="filter-name">Shirts</div>
-                <div class="filter-description">4 products</div>
-            </div>
-            <div class="filter-item">
-                <div class="filter-name">Sweatshirts</div>
-                <div class="filter-description">4 products</div>
-            </div>
-        </div>
-        <!-- product list -->
-        <div class="product-list">
-            <!-- <div class="product-card">
-                <div class="prod-img">
-                    <img src="img/featured1.png" alt="featured1">
-                </div>
-                <div class="prod-data">
-                    <div class="price">$14.00</div>
-                    <div class="stock">Stock: 9</div>
-                    <div class="name">Hoddies</div>
-                    <button class="add-to-cart">
-                        <span class="material-symbols-outlined">
-                            add
-                        </span>
-                    </button>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="prod-img">
-                    <img src="img/featured2.png" alt="featured2">
-                </div>
-                <div class="prod-data">
-                    <div class="price">$24.00</div>
-                    <div class="stock">Stock: 13</div>
-                    <div class="name">Shirts</div>
-                    <button class="add-to-cart">
-                        <span class="material-symbols-outlined">
-                            add
-                        </span>
-                    </button>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="prod-img">
-                    <img src="img/featured3.png" alt="featured3">
-                </div>
-                <div class="prod-data">
-                    <div class="price">$24.00</div>
-                    <div class="stock">Stock: 20</div>
-                    <div class="name">Sweatshirts</div>
-                    <button class="add-to-cart">
-                        <span class="material-symbols-outlined">
-                            add
-                        </span>
-                    </button>
+                    <p class="shop-prod-subtotal">Subtotal: $14.00</p>
+                    <div class="shop-options-container">
+                        <div class="shop-options">
+                            <button class="lessBtn">-</button>
+                            <span class="units">1 units</span>
+                            <button class="addBtn">+</button>
+                        </div>
+                        <button class="deleteBtn">
+                            <span class="material-symbols-outlined">
+                                delete
+                            </span>
+                        </button>
+                    </div>
                 </div>
             </div> -->
+            <div class="cart-total show-cart-total">
+                <div class="total-items">
+                    0 items
+                </div>
+                <div class="total-cost">
+                    $0.00
+                </div>
+            </div>
+            <button class="checkout-btn checkout-btn-disabled">
+                <span class="material-symbols-outlined">
+                    verified_user
+                </span>
+                <span class="checkout-text">Checkout</span>
+            </button>
         </div>
-    </div>
-    <footer>
-        <div class="sec1">
-            <p class="footer-title">Our information</p>
-            <p class="footer-item">Toluca - México</p>
-        </div>
-        <div class="sec2">
-            <p class="footer-title">About Us</p>
-            <p class="footer-item">Support Center</p>
-            <p class="footer-item">About Us</p>
-            <p class="footer-item">Copy Right</p>
-        </div>
-        <div class="sec3">
-            <p class="footer-title">Product</p>
-            <p class="footer-item">Hoodies</p>
-            <p class="footer-item">Shirts</p>
-            <p class="footer-item">Sweatshirts</p>
-        </div>
-        <div class="sec4">
-            <p class="footer-title">Social</p>
-            <div class="footer-social">
-                <p class="footer-item"><img src="img/face.svg" alt="facebook"></p>
-                <p class="footer-item"><img src="img/twitter.svg" alt="twitter"></p>
-                <p class="footer-item"><img src="img/instagram.svg" alt="instagram"></p>
+        <!-- main product section -->
+        <div class="main-product-container" id="home">
+            <div class="product-img">
+                <img src="img/home.png" alt="home">
+            </div>
+            <div class="product-data">
+                <h1 class="product-name">New Sweatshirt COLLECTIONS 2022</h1>
+                <p class="product-description">
+                    Latest arrival of the new Hanes Midweight Crewneck sweatshirt imported from the 2022 series, with a modern design.
+                </p>
+                <div class="product-price">
+                    $14.00
+                </div>
+                <div class="buttons">
+                    <button class="btn">Discover</button>
+                    <button class="btnBig">ADD TO CART</button>
+                </div>
             </div>
         </div>
-        <div class="sec5">
-            <p class="footer-item2">ACADEMLO. All rigths reserved</p>
+        <!-- products sections -->
+        <div class="products-container" id="products">
+            <!-- filter -->
+            <div class="filter">
+                <div class="filter-item">
+                    <div class="filter-name dark-color">Show All</div>
+                    <div class="filter-description">show all products</div>
+                </div>
+                <div class="filter-item">
+                    <div class="filter-name">Hoodies</div>
+                    <div class="filter-description">3 products</div>
+                </div>
+                <div class="filter-item">
+                    <div class="filter-name">Shirts</div>
+                    <div class="filter-description">4 products</div>
+                </div>
+                <div class="filter-item">
+                    <div class="filter-name">Sweatshirts</div>
+                    <div class="filter-description">4 products</div>
+                </div>
+            </div>
+            <!-- product list -->
+            <div class="product-list">
+                <!-- <div class="product-card">
+                    <div class="prod-img">
+                        <img src="img/featured1.png" alt="featured1">
+                    </div>
+                    <div class="prod-data">
+                        <div class="price">$14.00</div>
+                        <div class="stock">Stock: 9</div>
+                        <div class="name">Hoddies</div>
+                        <button class="add-to-cart">
+                            <span class="material-symbols-outlined">
+                                add
+                            </span>
+                        </button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="prod-img">
+                        <img src="img/featured2.png" alt="featured2">
+                    </div>
+                    <div class="prod-data">
+                        <div class="price">$24.00</div>
+                        <div class="stock">Stock: 13</div>
+                        <div class="name">Shirts</div>
+                        <button class="add-to-cart">
+                            <span class="material-symbols-outlined">
+                                add
+                            </span>
+                        </button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="prod-img">
+                        <img src="img/featured3.png" alt="featured3">
+                    </div>
+                    <div class="prod-data">
+                        <div class="price">$24.00</div>
+                        <div class="stock">Stock: 20</div>
+                        <div class="name">Sweatshirts</div>
+                        <button class="add-to-cart">
+                            <span class="material-symbols-outlined">
+                                add
+                            </span>
+                        </button>
+                    </div>
+                </div> -->
+            </div>
         </div>
-    </footer>
+        <footer>
+            <div class="sec1">
+                <p class="footer-title">Our information</p>
+                <p class="footer-item">Toluca - México</p>
+            </div>
+            <div class="sec2">
+                <p class="footer-title">About Us</p>
+                <p class="footer-item">Support Center</p>
+                <p class="footer-item">About Us</p>
+                <p class="footer-item">Copy Right</p>
+            </div>
+            <div class="sec3">
+                <p class="footer-title">Product</p>
+                <p class="footer-item">Hoodies</p>
+                <p class="footer-item">Shirts</p>
+                <p class="footer-item">Sweatshirts</p>
+            </div>
+            <div class="sec4">
+                <p class="footer-title">Social</p>
+                <div class="footer-social">
+                    <p class="footer-item"><img src="img/face.svg" alt="facebook"></p>
+                    <p class="footer-item"><img src="img/twitter.svg" alt="twitter"></p>
+                    <p class="footer-item"><img src="img/instagram.svg" alt="instagram"></p>
+                </div>
+            </div>
+            <div class="sec5">
+                <p class="footer-item2">ACADEMLO. All rigths reserved</p>
+            </div>
+        </footer>
+    </div>
 </body>
 </html>

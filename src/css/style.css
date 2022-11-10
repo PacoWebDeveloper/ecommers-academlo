@@ -43,6 +43,36 @@ html::-webkit-scrollbar-thumb {
 body {
     background-color: var(--white-color);
 }
+.main-container {
+    display: none;
+}
+.show-main-container {
+    display: block;
+}
+.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    z-index: 500;
+    background-color: var(--light-gray-color);
+}
+#loading-logo {
+    animation-name: loading;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+@keyframes loading {
+    0% {transform: translateY(0px);}
+    25% {transform: translateY(6px);}
+    50% {transform: translateY(12px);}
+    75% {transform: translateY(6px);}
+    100% {transform: translateY(0px);}
+}
+.move-logo {
+    top: 15px;
+}
 .navbar, .logo, .menu, .menu-item, .options, .option-item {
     display: flex;
     align-items: center;

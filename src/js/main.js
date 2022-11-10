@@ -1,6 +1,15 @@
 import { addProductCard, filterProducts, addToShoppingCart, updateTotalItemsAndTotalCost, setHeaderInShoppingCart, setShoppingCartToDefault } from "./UI.js";
 window.addEventListener('load', () => {
+    
     // ===========> VARIABLES <=====================
+    // ================= Loading ===================
+    const mainContainer = document.querySelector('.main-container');
+    const loading = document.querySelector('.loading');
+    const logo = document.querySelector('#loading-logo');
+    
+    loading.style.display = 'none';
+    mainContainer.classList.add('show-main-container');
+    
     // ================= Dark mode =================
     const darkBtn = document.querySelector('.dark');
     const logoRed = document.querySelector('#logo-red');
@@ -16,8 +25,6 @@ window.addEventListener('load', () => {
     // ======== Shopping cart ========
     const cartBtn = document.querySelector('.cart');
     const shoppingCart = document.querySelector('.shopping-cart');
-    const addCartBtns = document.querySelectorAll('.add-to-cart');
-    const closeShoppingBtn = document.querySelector('.close-btn');
     const cartCount = document.querySelector('.cart-count');
     const productsArray = [
         {
@@ -156,7 +163,13 @@ window.addEventListener('load', () => {
     // =============> ACTIONS <==================
     // ====== OnInit ========
     insertProducts(productsArray);
-    
+    // =========== Loading =================
+    /* mainContainer.addEventListener('load', () => {
+        loading.style.display = 'none';
+        mainContainer.classList.add('show-main-container');
+        console.log(loading.style.display)
+        console.log(mainContainer.classList)
+    }) */
     // =========== Dark mode ===============
     darkBtn.addEventListener('click', () => {
         const doc = document.documentElement.style;
@@ -196,6 +209,7 @@ window.addEventListener('load', () => {
             doc.setProperty('--check-disabled', '#f0f0f0');
             doc.setProperty('--light-gray-color', '#e6e6e6');
             doc.setProperty('--footer-title', '#262626');
+            doc.setProperty('--footer-font', '#6b6b6b');
             doc.setProperty('--footer-font', '#6b6b6b');
         }
     })
